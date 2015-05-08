@@ -3,9 +3,35 @@ require "./currency_converter.rb"
 
 currency_converter = CurrencyConverter.new({USD: 1.00000, EUR: 0.89252,
                                          GBP: 0.64726, JPY: 119.733})
+dollars = Currency.new(100, :USD)
+dollars_symbol = Currency.new("$100")
+dollars_error = Currency.new("&100")
+euro = Currency.new(100, :EUR)
+euro_symbol = Currency.new("€100")
+yen = Currency.new(2000, :JPY)
+yen_symbol = Currency.new("¥2000")
+uk = Currency.new(100, :GBP)
+uk_symbol = Currency.new("£100")
 
+
+
+#need to work on using $/€/¥/£ etc. in converter instead of :USD, etc.
+puts "*******Test Currency Converter for 1 USD*******"
 p currency_converter.convert(Currency.new(1, :USD), :USD) == Currency.new(1, :USD)
+puts ""
 
+# #need to work on roundoing at 2 decimal places
+puts "*******Convert Any to Any*******"
+p currency_converter.convert(uk_symbol, :EUR).amount
+puts ""
+
+
+
+
+
+
+
+#need to work on using $/€/¥/£ etc. in converter instead of :USD, etc.
 
 
 ########################################################
