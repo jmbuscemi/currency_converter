@@ -9,4 +9,4 @@ puts "John has #{john_money.amount} #{john_money.code}."
 puts "Joe has #{jim_money.amount} #{jim_money.code}."
 
 
-puts john_money == jim_money
+puts john_money + jim_money
