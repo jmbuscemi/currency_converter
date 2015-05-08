@@ -2,10 +2,15 @@ class DifferentCurrencyCodeError < StandardError
 end
 
 class Currency
-  attr_reader :amount, :code
-  def initialize(amount, code)
-    @amount = amount
+  attr_reader :code, :amount
+  def initialize(code, amount = 0)
+    code_hash = {"$" => "USD", "€" => "EUR","¥" => "JPY", "£" =>  "GBP"}
     @code = code
+    @amount = amount
+    if amount == 0
+      @code = code_hash[code[0]]
+      @amount = code[1..-1].to_f
+    end
   end
 
   def ==(input)
@@ -14,7 +19,7 @@ class Currency
 
   def +(new_money)
     if @code == new_money.code
-      Currency.new(@amount + new_money.amount, @code)
+      Currency.new(@code, @amount + new_money.amount)
     else
       raise DifferentCurrencyCodeError, "Different currency codes: Can't operate."
     end
@@ -22,14 +27,14 @@ class Currency
 
   def -(new_money)
     if @code == new_money.code
-      Currency.new(@amount - new_money.amount, @code)
+      Currency.new(@code, @amount - new_money.amount)
     else
       raise DifferentCurrencyCodeError, "Different currency codes: Can't operate."
     end
   end
 
   def *(exchange_rate)
-    Currency.new(@amount.to_f * exchange_rate, @code)
+    Currency.new(@code, @amount.to_f * exchange_rate)
   end
 
 
