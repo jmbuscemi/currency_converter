@@ -12,20 +12,24 @@ class Currency
     @amount == input.amount && @code == input.code
   end
 
-  def +(other)
-    if @code == other.code
-      Currency.new(@amount + other.amount, @code)
+  def +(new_money)
+    if @code == new_money.code
+      Currency.new(@amount + new_money.amount, @code)
     else
       raise DifferentCurrencyCodeError, "Different currency codes: Can't operate."
     end
   end
 
-  def -(other)
-    if @code == other.code
-      Currency.new(@amount - other.amount, @code)
+  def -(new_money)
+    if @code == new_money.code
+      Currency.new(@amount - new_money.amount, @code)
     else
       raise DifferentCurrencyCodeError, "Different currency codes: Can't operate."
     end
+  end
+
+  def *(exchange_rate)
+    Currency.new(@amount.to_f * exchange_rate, @code)
   end
 
 
