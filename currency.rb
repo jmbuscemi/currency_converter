@@ -14,7 +14,7 @@ class Currency
 
   def +(other)
     if @code == other.code
-      @amount + other.amount
+      Currency.new(@amount + other.amount, @code)
     else
       raise DifferentCurrencyCodeError, "Different currency codes: Can't operate."
     end
