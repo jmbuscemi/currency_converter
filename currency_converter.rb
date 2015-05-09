@@ -10,7 +10,7 @@ class CurrencyConverter
 
   def convert(currency, code)
     if !@conversion_rates.include?(currency.code) || !@conversion_rates.include?(code)
-      raise UnknownCurrencyCodeError, "Unknown currency code!!"
+      raise UnknownCurrencyCodeError, "Unknown currency code!"
     else
       Currency.new(currency.amount * (@conversion_rates[code] / @conversion_rates[currency.code]), code)
     end
