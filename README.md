@@ -7,7 +7,7 @@ Create two Ruby classes: one for storing currencies and another for converting c
 ### Currency objects:
 
 * Are created with an amount and a currency code. The currency object can take codes that are one argument with a currency symbol embedded in it, like "$1.20" or "€ 7.00", and figures out the correct currency code. It can also take two arguments, one being the amount and the other being the currency code (USD, EUR, etc).
-* Currency objects can only be added and subtracted to currency with the same code, otherwise a DifferentCurrencyCodeError is displayed.
+* Currency objects can only be added and subtracted to currency with the same code, otherwise a `DifferentCurrencyCodeError` is displayed.
 
 
 ### CurrencyConverter objects:
