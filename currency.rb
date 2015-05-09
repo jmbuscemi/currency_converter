@@ -22,7 +22,7 @@ class Currency
     if @code == new_money.code
       Currency.new(@amount + new_money.amount, @code)
     else
-      raise DifferentCurrencyCodeError, "Different currency codes: Can't operate."
+      raise DifferentCurrencyCodeError, "Different currency codes: Can't operate"
     end
   end
 
@@ -30,7 +30,7 @@ class Currency
     if @code == new_money.code
       Currency.new(@amount - new_money.amount, @code)
     else
-      raise DifferentCurrencyCodeError, "Different currency codes: Can't operate."
+      raise DifferentCurrencyCodeError, "Different currency codes: Can't operate"
     end
   end
 
