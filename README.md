@@ -14,5 +14,5 @@ Create two Ruby classes: one for storing currencies and another for converting c
 
 * Are initialized with a Hash of currency codes and conversion rates based on $1.00.
 * Currently the rates supported are USD ($), EUR(€), GBP(£), and JPY(¥).
-* Currency objects that have a known currency code can be converted to a requested currency code (provided the requested code is known) and returns a new Currency object with the right amount in the new currency code.
+* Currency objects that have a supported currency code can be converted to a requested currency code (provided the requested code is supported) and returns a new Currency object with the right amount in the new currency code.
 * An `UnknownCurrencyCodeError` is displayed when you try to convert from or to a currency code it doesn't know about.
