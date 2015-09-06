@@ -21,19 +21,19 @@ puts "*******Convert Any to Any*******"
 p currency_exchange.convert(dollars, :EUR).amount.round(2)
 puts ""
 
-########################################################
-#### Test Currency Object requirements
+# ########################################################
+# #### Test Currency Object requirements
 # john_money = Currency.new(10, :USD)
 # jim_money = Currency.new(10, :USD)
 # new_money = Currency.new("$ 1.25")
 # string_test = Currency.new("€ 1000.43")
 # puts "*******Create Currency objects*******"
 # puts "John has #{john_money.amount} #{john_money.code}."
-# puts "Joe has #{jim_money.amount} #{jim_money.code}."
+# puts "Jim has #{jim_money.amount} #{jim_money.code}."
 # puts ""
 #
 # puts "*******Test Currency Equality*******"
-# puts john_money == jim_money #true if amount/currency are same
+# puts john_money == jim_money #true if amount and currency are same
 # puts ""
 #
 # #Add money
