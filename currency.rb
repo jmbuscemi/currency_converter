@@ -9,8 +9,10 @@ class Currency
       @code = code.to_sym
       @amount = amount
     else
-      @code = code_hash[code[0]] #Use REGEX
-      @amount = code[1..-1].to_f
+      # @code = code_hash[code[0]]
+      # @amount = code[1..-1].to_f
+      @code = code_hash[code.gsub(/[\d+\.\d+]/,"").strip]
+      @amount = code.gsub(/^\D+/,"").to_f
     end
   end
 
